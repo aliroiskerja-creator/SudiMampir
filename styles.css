@@ -13,3 +13,14 @@
 /* Dashboard keuangan dan aksi pengguna */
 .finance-stats .stat{position:relative;min-height:112px}.finance-stats .stat strong{font-size:clamp(18px,2vw,25px);white-space:nowrap}.finance-stats .stat:nth-child(2) .icon{background:#fff4df;color:#ed9b12}.finance-stats .stat:nth-child(3) .icon{background:#e8f8ed;color:#0a9a50}.chart-panel{padding:20px 22px}.chart-wrap{width:100%;height:300px;position:relative}.chart-wrap canvas{display:block;width:100%;height:100%}.chart-legend{display:flex;justify-content:space-between;gap:12px;align-items:center;color:var(--muted);font-size:11px;margin-top:5px}.chart-legend b{color:var(--green);font-size:13px}.header-actions{display:flex;gap:10px;align-items:center}.btn-action{border:1px solid transparent;border-radius:9px;padding:8px 10px;font-size:11px;font-weight:800;white-space:nowrap}.btn-action.edit{background:#e8f8ef;color:#078b58;border-color:#bdebd2}.btn-action.delete{background:#fff0ef;color:#d43d36;border-color:#ffd0cd}
 @media(max-width:800px){.finance-stats{grid-template-columns:1fr}.finance-stats .stat:last-child{grid-column:auto}.finance-stats .stat{min-height:90px}.chart-wrap{height:240px}.chart-legend{align-items:flex-start;flex-direction:column}.header-actions{width:100%;justify-content:flex-end}.panel-head:has(.header-actions){align-items:flex-start;flex-direction:column}}
+
+/* Restaurant menu cards and product photo thumbnails */
+.product-thumb{width:54px;height:42px;object-fit:cover;border-radius:9px;border:1px solid #e2eee8;display:block}
+.menu-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px;margin-top:20px}
+.menu-card{overflow:hidden;border:1px solid #e4eee8;border-radius:16px;background:#fff;box-shadow:0 5px 18px rgba(12,80,52,.05)}
+.menu-card>img{display:block;width:100%;height:132px;object-fit:cover;background:#f1f6f3}
+.menu-card-body{padding:12px;display:grid;gap:9px}
+.menu-card-body b{font-size:14px;min-height:36px}
+.menu-card-body strong{color:#078b58;font-size:15px}
+.menu-card-body .btn{width:100%;padding:9px}
+@media(max-width:640px){.menu-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.menu-card>img{height:105px}.menu-card-body{padding:9px}}
