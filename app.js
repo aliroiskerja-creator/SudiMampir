@@ -55,6 +55,18 @@ async function renderProducts(){
  $('addProduct').onclick=()=>form();document.querySelectorAll('[data-edit-product]').forEach(b=>b.onclick=()=>form(rows.find(x=>x.product_id===b.dataset.editProduct)));document.querySelectorAll('[data-toggle-product]').forEach(b=>b.onclick=async()=>{try{await api('products.toggle',{product_id:b.dataset.toggleProduct});toast('Status produk diperbarui');renderProducts()}catch(e){toast(e.message)}});
 }
 
+
+async function renderIngredients(){
+ const rows=await api('ingredients.list');
+ $('content').innerHTML=`<div class="panel"><div class="panel-head"><h3>Master Bahan Baku</h3><button class="btn primary" id="addIngredient">+ Tambah Bahan</button></div><div class="table-wrap"><table><thead><tr><th>No.</th><th>Nama Bahan</th><th>Satuan Dasar</th><th>Status</th><th>Aksi</th></tr></thead><tbody>${rows.map((r,i)=>`<tr><td>${i+1}</td><td>${escapeHtml(r.nama_bahan)}</td><td>${escapeHtml(r.satuan_dasar)}</td><td><span class="badge">${escapeHtml(r.status||'AKTIF')}</span></td><td><button class="btn-light" data-edit-ingredient="${escapeHtml(r.bahan_id)}">Edit</button></td></tr>`).join('')}</tbody></table></div>${rows.length?'':'<div class="empty">Belum ada bahan baku. Klik Tambah Bahan untuk memulai.</div>'}</div><div id="ingredientForm"></div>`;
+ const form=(r={})=>{const box=$('ingredientForm');if(!box)return;box.innerHTML=`<div class="panel"><div class="panel-head"><h3>${r.bahan_id?'Edit':'Tambah'} Bahan Baku</h3><button type="button" class="btn-light" id="cancelIngredient">Tutup</button></div><form id="saveIngredientForm" class="form-grid"><label>Nama Bahan<input name="nama_bahan" required value="${escapeHtml(r.nama_bahan||'')}" placeholder="Contoh: Beras"></label><label>Satuan Dasar<select name="satuan_dasar"><option ${r.satuan_dasar==='gram'?'selected':''}>gram</option><option ${r.satuan_dasar==='KG'?'selected':''}>KG</option><option ${r.satuan_dasar==='liter'?'selected':''}>liter</option><option ${r.satuan_dasar==='ml'?'selected':''}>ml</option><option ${r.satuan_dasar==='pcs'?'selected':''}>pcs</option><option ${r.satuan_dasar==='pack'?'selected':''}>pack</option><option ${r.satuan_dasar==='ikat'?'selected':''}>ikat</option></select></label><input type="hidden" name="bahan_id" value="${escapeHtml(r.bahan_id||'')}"><div class="form-actions"><button class="btn primary">Simpan Bahan</button></div></form></div>`;
+ $('cancelIngredient').onclick=()=>{$('ingredientForm').innerHTML=''};
+ $('saveIngredientForm').onsubmit=async e=>{e.preventDefault();try{await api('ingredients.save',Object.fromEntries(new FormData(e.target)));toast('Bahan baku berhasil disimpan');await renderIngredients()}catch(err){toast(err.message)}};
+ };
+ $('addIngredient').onclick=()=>form();
+ document.querySelectorAll('[data-edit-ingredient]').forEach(b=>b.onclick=()=>form(rows.find(x=>x.bahan_id===b.dataset.editIngredient)));
+}
+
 let orderCart=[];
 async function renderMenu(){
  const [rows,branches]=await Promise.all([api('products.list'),api('branches.list')]);
