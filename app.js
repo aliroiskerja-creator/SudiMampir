@@ -6,6 +6,7 @@ const api=async(action,payload={})=>{
 };
 function toast(msg){const el=$('toast');el.textContent=msg;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),2600)}
 function money(n){return new Intl.NumberFormat('id-ID',{style:'currency',currency:'IDR',maximumFractionDigits:0}).format(Number(n||0))}
+function todayISO(){const d=new Date();const y=d.getFullYear();const m=String(d.getMonth()+1).padStart(2,'0');const day=String(d.getDate()).padStart(2,'0');return `${y}-${m}-${day}`}
 function escapeHtml(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 function showApp(){ $('loginView').classList.add('hidden');$('appView').classList.remove('hidden');$('userName').textContent=state.user.nama;$('userRole').textContent=state.user.role;$('avatar').textContent=(state.user.nama||'U').slice(0,1).toUpperCase();document.querySelectorAll('[data-owner]').forEach(x=>x.classList.toggle('hidden',state.user.role!=='OWNER'));document.querySelectorAll('[data-purchase-access]').forEach(x=>x.classList.toggle('hidden',state.user.role==='KASIR'));navigate('dashboard')}
 function showLogin(){ $('appView').classList.add('hidden');$('loginView').classList.remove('hidden')}
