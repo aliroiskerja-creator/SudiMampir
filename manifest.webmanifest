@@ -1,0 +1,9 @@
+{
+  "name": "Sudi Mampir",
+  "short_name": "Sudi Mampir",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f4f8f6",
+  "theme_color": "#078b58",
+  "icons": []
+}
