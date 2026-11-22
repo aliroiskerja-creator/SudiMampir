@@ -24,3 +24,23 @@
 .menu-card-body strong{color:#078b58;font-size:15px}
 .menu-card-body .btn{width:100%;padding:9px}
 @media(max-width:640px){.menu-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.menu-card>img{height:105px}.menu-card-body{padding:9px}}
+
+.payment-info{grid-column:1/-1;padding:12px 14px;background:#f0faf5;border:1px solid #dcefe5;border-radius:12px;min-height:10px}
+.receipt-overlay{position:fixed;inset:0;background:rgba(10,35,25,.55);z-index:9999;display:flex;align-items:center;justify-content:center;padding:16px;overflow:auto}
+.receipt-modal{background:#fff;border-radius:18px;padding:18px;max-height:95vh;overflow:auto;max-width:520px;width:100%;box-shadow:0 20px 70px #001b1233}
+.receipt-actions{display:flex;gap:10px;justify-content:flex-end;margin-bottom:14px}
+.receipt-paper{width:var(--receipt-width);max-width:100%;margin:0 auto;color:#111;font:12px/1.4 monospace}
+.receipt-paper h2{text-align:center;font:bold 16px monospace;margin:0 0 6px}
+.receipt-paper .center{text-align:center;margin:8px 0}
+.receipt-paper hr{border:0;border-top:1px dashed #555;margin:8px 0}
+.receipt-line{display:flex;justify-content:space-between;gap:8px;margin:5px 0}
+.receipt-qr{display:block;width:150px;height:150px;object-fit:contain;margin:8px auto}
+@media print{
+ @page{size:var(--receipt-width,58mm) auto;margin:3mm}
+ body *{visibility:hidden!important}
+ #receiptPaper,#receiptPaper *{visibility:visible!important}
+ #receiptPaper{position:absolute!important;left:0!important;top:0!important;width:var(--receipt-width)!important;max-width:none!important;margin:0!important}
+ .receipt-overlay{position:static!important;display:block!important;background:none!important;padding:0!important}
+ .receipt-modal{padding:0!important;margin:0!important;max-width:none!important;width:auto!important;max-height:none!important;overflow:visible!important;box-shadow:none!important}
+ .receipt-actions{display:none!important}
+}
