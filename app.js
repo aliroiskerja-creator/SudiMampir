@@ -34,6 +34,18 @@ async function syncLoginLogo(){
 }
 function showApp(){ $('loginView').classList.add('hidden');$('appView').classList.remove('hidden');$('userName').textContent=state.user.nama;$('userRole').textContent=state.user.role;$('avatar').textContent=(state.user.nama||'U').slice(0,1).toUpperCase();document.querySelectorAll('[data-owner]').forEach(x=>x.classList.toggle('hidden',state.user.role!=='OWNER'));document.querySelectorAll('[data-purchase-access]').forEach(x=>x.classList.toggle('hidden',state.user.role==='KASIR'));updateBottomNavAlignment();renderMobileHome();syncLoginLogo()}
 function showLogin(){ $('appView').classList.add('hidden');$('loginView').classList.remove('hidden')}
+const passwordToggle=$('togglePassword');
+passwordToggle?.addEventListener('click',()=>{
+ const input=$('password');
+ const show=input.type==='password';
+ input.type=show?'text':'password';
+ passwordToggle.setAttribute('aria-pressed',String(show));
+ passwordToggle.setAttribute('aria-label',show?'Sembunyikan password':'Tampilkan password');
+ passwordToggle.title=show?'Sembunyikan password':'Tampilkan password';
+ passwordToggle.innerHTML=show
+  ?'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3l18 18M10.6 10.7a2 2 0 002.7 2.7"/><path d="M9.9 5.2A10.8 10.8 0 0112 5c6.4 0 10 7 10 7a15.8 15.8 0 01-3.2 3.9M6.2 6.3C3.5 8.1 2 12 2 12s3.6 7 10 7c1.1 0 2.1-.2 3-.5"/></svg>'
+  :'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg>';
+});
 $('loginForm').addEventListener('submit',async e=>{e.preventDefault();$('loginError').textContent='Memeriksa akun...';try{const d=await api('login',{username:$('username').value,password:$('password').value});state.token=d.token;state.user=d.user;localStorage.setItem('sm_token',state.token);$('password').value='';$('loginError').textContent='';showApp()}catch(err){$('loginError').textContent=err.message}});
 async function performLogout(){try{await api('logout')}catch(e){}localStorage.removeItem('sm_token');state.token='';state.user=null;showLogin()}
 $('logoutBtn').addEventListener('click',performLogout);

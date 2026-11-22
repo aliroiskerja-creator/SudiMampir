@@ -461,3 +461,10 @@ tbody tr:last-child td:first-child{border-radius:0 0 0 9px}tbody tr:last-child t
   #bottomNav .bottom-nav-track button i{width:16px!important;height:16px!important}
   #bottomNav .bottom-nav-track button small{font-size:8px!important;line-height:1.05!important}
 }
+
+/* Kontrol lihat/sembunyikan password pada halaman login */
+.password-field{position:relative;display:flex;align-items:center;width:100%}
+.password-field input{padding-right:48px}
+.password-toggle{position:absolute;right:7px;top:50%;transform:translateY(-50%);width:36px;height:36px;border:0;border-radius:9px;background:transparent;color:#648176;display:grid;place-items:center;cursor:pointer;padding:0}
+.password-toggle:hover,.password-toggle:focus-visible{background:#e8f7ef;color:var(--green);outline:none}
+.password-toggle svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}

@@ -13,7 +13,7 @@
       <h1>Sudi <span>Mampir</span></h1><p class="muted">Silakan masuk untuk melanjutkan</p>
       <form id="loginForm">
         <label>Username<input id="username" autocomplete="username" required placeholder="Masukkan username"></label>
-        <label>Password<input id="password" type="password" autocomplete="current-password" required placeholder="Masukkan password"></label>
+        <label>Password<div class="password-field"><input id="password" type="password" autocomplete="current-password" required placeholder="Masukkan password"><button id="togglePassword" class="password-toggle" type="button" aria-label="Tampilkan password" aria-pressed="false" title="Tampilkan password"><svg class="password-eye" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg></button></div></label>
         <button class="btn primary full" type="submit">Masuk</button>
       </form><div id="loginError" class="error"></div>
       <small class="muted center">Akses aman untuk Owner dan Karyawan</small>
