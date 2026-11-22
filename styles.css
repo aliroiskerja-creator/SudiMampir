@@ -44,3 +44,8 @@
  .receipt-modal{padding:0!important;margin:0!important;max-width:none!important;width:auto!important;max-height:none!important;overflow:visible!important;box-shadow:none!important}
  .receipt-actions{display:none!important}
 }
+
+/* Kartu transaksi tetap terlihat saat daftar menu digulir */
+.transaction-sticky{position:sticky;top:10px;z-index:20;box-shadow:0 12px 28px rgba(5,82,54,.13);border-color:#cfe9dc}
+.transaction-sticky .payment-info img{display:block;width:150px;height:150px;object-fit:contain;background:#fff;border-radius:10px;padding:5px;margin:8px 0}
+@media(max-width:640px){.transaction-sticky{top:6px;padding:13px;border-radius:14px}.transaction-sticky .panel-head{margin-bottom:9px}}
