@@ -155,7 +155,7 @@ async function loadSalesRows(){
  if(!from||!to||from>to){toast('Rentang tanggal tidak valid');return}
  currentSalesRows=await api('sales.report.list',{from,to,branch_id:$('salesBranch')?.value||''});
  const total=currentSalesRows.reduce((s,x)=>s+Number(x.total||0),0),qty=currentSalesRows.reduce((s,x)=>s+Number(x.qty||0),0);
- $('salesSummary').innerHTML=`<div class="stats"><div class="stat"><span class="label">Total Penjualan</span><strong>${money(total)}</strong></div><div class="stat"><span class="label">Total Porsi Terjual</span><strong>${qty.toLocaleString('id-ID')}</strong></div><div class="stat"><span class="label">Jenis Menu Terjual</span><strong>${currentSalesRows.length}</strong></div></div>`;
+ $('salesSummary').innerHTML=`<div class="stats sales-kpi-grid"><div class="stat"><span class="label">Total Penjualan</span><strong>${money(total)}</strong></div><div class="stat"><span class="label">Total Porsi Terjual</span><strong>${qty.toLocaleString('id-ID')}</strong></div><div class="stat"><span class="label">Jenis Menu Terjual</span><strong>${currentSalesRows.length}</strong></div></div>`;
  $('salesTable').innerHTML=`<table><thead><tr><th>No.</th><th>Tanggal</th><th>Hari</th><th>Nama Menu Makanan/Minuman</th><th>Qty</th><th>Jumlah Harga Terjual</th></tr></thead><tbody>${currentSalesRows.map((x,i)=>`<tr><td>${i+1}</td><td>${escapeHtml(x.tanggal)}</td><td>${dayName(x.tanggal)}</td><td>${escapeHtml(x.nama_menu)}</td><td>${Number(x.qty).toLocaleString('id-ID')}</td><td>${money(x.total)}</td></tr>`).join('')}</tbody></table>${currentSalesRows.length?'':'<div class="empty">Belum ada penjualan pada periode ini.</div>'}`;
 }
 function exportSalesPdf(kind){
@@ -205,3 +205,47 @@ async function loadPurchaseRows(){const payload={from:$('purchaseFrom').value,to
 function dayName(date){const s=String(date||'').slice(0,10);const m=s.match(/^(\d{4})-(\d{2})-(\d{2})$/);if(!m)return '-';const d=new Date(Number(m[1]),Number(m[2])-1,Number(m[3]),12,0,0);return ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'][d.getDay()]}
 function purchaseExportRows(){return currentPurchaseRows.flatMap(h=>h.items.map((it,i)=>({'No':i+1,'Nama Barang':it.nama_snapshot,'Banyak':it.qty,'Satuan':it.satuan,'Tanggal':h.tanggal,'Hari':dayName(h.tanggal),'Harga Satuan':it.harga_satuan,'Nominal':it.subtotal,'Status Pembayaran':h.status,'Cabang':h.nama_cabang,'ID Belanja':h.purchase_id}))) }
 function exportPurchases(kind){const rows=purchaseExportRows();if(kind==='xlsx'){if(!window.XLSX){toast('Library XLSX belum termuat. Periksa koneksi internet.');return}const ws=XLSX.utils.json_to_sheet(rows);const wb=XLSX.utils.book_new();XLSX.utils.book_append_sheet(wb,ws,'Daftar Belanja');XLSX.writeFile(wb,`SudiMampir_Belanja_${$('purchaseFrom').value}_${$('purchaseTo').value}.xlsx`)}else{const w=window.open('','_blank');const html=$('purchaseReportTable').innerHTML;w.document.write(`<html><head><title>Laporan Belanja Sudi Mampir</title><style>body{font:12px Arial;padding:20px}table{width:100%;border-collapse:collapse}th,td{border:1px solid #ccc;padding:7px;text-align:left}h2{margin-bottom:4px}</style></head><body><h2>Laporan Belanja Sudi Mampir</h2><p>Periode ${$('purchaseFrom').value} s.d. ${$('purchaseTo').value}</p>${html}</body></html>`);w.document.close();w.focus();w.print()}}
+
+
+// Pulihkan sesi saat halaman di-refresh. Token diverifikasi ke backend; tidak menyimpan password.
+async function restoreSession(){
+  if(!state.token){showLogin();return;}
+  try{
+    const me=await api('me');
+    state.user=me;
+    showApp();
+    installBackGuard();
+  }catch(err){
+    localStorage.removeItem('sm_token');state.token='';state.user=null;showLogin();
+  }
+}
+const originalShowApp=showApp;
+showApp=function(){originalShowApp();installBackGuard()};
+let backGuardInstalled=false,allowAppExit=false;
+function installBackGuard(){
+  if(backGuardInstalled)return;backGuardInstalled=true;
+  history.pushState({smAppGuard:true},'',location.href);
+  window.addEventListener('popstate',()=>{
+    if(allowAppExit)return;
+    const leave=window.confirm('Apakah Anda yakin ingin keluar dari aplikasi Sudi Mampir?');
+    if(leave){allowAppExit=true;}
+    else history.pushState({smAppGuard:true},'',location.href);
+  });
+}
+// Dukungan instalasi PWA (Chrome/Android dan browser yang mendukung beforeinstallprompt).
+let deferredInstallPrompt=null;
+function showInstallBanner(){
+  if(document.getElementById('smInstallBanner')||window.matchMedia('(display-mode: standalone)').matches||window.navigator.standalone)return;
+  const box=document.createElement('aside');box.id='smInstallBanner';box.className='pwa-install-banner';
+  box.innerHTML='<div><b>Pasang Sudi Mampir</b><small>Akses lebih cepat seperti aplikasi di smartphone.</small></div><button type="button" id="smInstallBtn">Install</button><button type="button" class="pwa-dismiss" id="smInstallClose" aria-label="Tutup">×</button>';
+  document.body.appendChild(box);
+  document.getElementById('smInstallBtn').onclick=async()=>{
+    if(deferredInstallPrompt){deferredInstallPrompt.prompt();await deferredInstallPrompt.userChoice;deferredInstallPrompt=null;box.remove();}
+    else alert('Untuk memasang: buka menu browser (⋮), lalu pilih “Tambahkan ke layar utama” atau “Install aplikasi”.');
+  };
+  document.getElementById('smInstallClose').onclick=()=>box.remove();
+}
+window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredInstallPrompt=e;showInstallBanner()});
+window.addEventListener('appinstalled',()=>{deferredInstallPrompt=null;document.getElementById('smInstallBanner')?.remove();toast('Sudi Mampir berhasil dipasang.')});
+if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('/sw.js').catch(err=>console.warn('PWA service worker:',err)))}
+window.addEventListener('load',()=>{if(!window.matchMedia('(display-mode: standalone)').matches&&!window.navigator.standalone)setTimeout(showInstallBanner,1400);restoreSession()});
