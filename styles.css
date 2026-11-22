@@ -249,3 +249,31 @@ tbody tr:last-child td:first-child{border-radius:0 0 0 9px}tbody tr:last-child t
 .home-return-btn i{width:16px;height:16px}
 .receipt-actions{flex-wrap:wrap}
 @media(max-width:800px){.home-return-btn{padding:8px 10px;font-size:11px}.home-return-btn i{width:15px;height:15px}}
+
+
+/* Header ringkas: tombol Home menggantikan judul halaman di kiri atas. */
+.topbar{position:relative;justify-content:space-between;gap:14px}
+.topbar-home-btn{order:0;flex:0 0 auto;min-height:36px}
+.topbar .header-actions{order:1;margin-left:auto}
+.page-heading-hidden{display:none!important}
+
+/* Tombol halaman dibuat lebih ringkas, konsisten, dan tetap mudah disentuh. */
+.main .content .btn,
+.main .content .btn-light,
+.main .content .btn-action{
+  min-height:32px;padding:8px 12px;border-radius:9px;font-size:11px;
+  line-height:1.2;font-weight:700;letter-spacing:.05px;box-shadow:0 2px 7px rgba(7,91,60,.07)
+}
+.main .content .btn-action{min-height:28px;padding:6px 9px;font-size:10px;box-shadow:none}
+.main .content .toolbar button,.main .content .form-actions button{flex:0 0 auto}
+.main .content .panel-head>.btn,.main .content .panel-head>.btn-light{white-space:nowrap}
+@media(max-width:800px){
+ .topbar{height:68px;min-height:68px}
+ .topbar-home-btn{min-height:34px;padding:7px 11px!important;font-size:11px!important;border-radius:10px!important}
+ .user-chip{font-size:11px}
+ .main .content .btn,.main .content .btn-light{min-height:30px;padding:7px 10px;font-size:10.5px;border-radius:9px}
+ .main .content .btn-action{min-height:27px;padding:5px 8px;font-size:9.5px}
+ .main .content .toolbar{gap:7px}
+ .main .content .form-actions{gap:7px;flex-wrap:wrap}
+}
+@media(min-width:801px){.topbar-home-btn{padding:8px 13px!important;font-size:11px!important}}

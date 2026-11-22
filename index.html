@@ -36,8 +36,10 @@
       <button id="logoutBtn" class="logout"><i data-lucide="log-out"></i> Keluar</button>
     </aside>
     <main class="main">
-      <header class="topbar"><div><span class="eyebrow">SUDI MAMPIR / <span id="pageLabel">HOME</span></span><h2 id="pageTitle">Home</h2></div>
-        <div class="header-actions"><button class="btn-light home-return-btn" id="homeBtn" type="button"><i data-lucide="house"></i> Home</button><div class="user-chip"><div class="avatar" id="avatar">O</div><div><b id="userName">Owner</b><small id="userRole">OWNER</small></div></div></div>
+      <header class="topbar">
+        <button class="btn-light home-return-btn topbar-home-btn" id="homeBtn" type="button"><i data-lucide="house"></i><span>Home</span></button>
+        <div class="header-actions"><div class="user-chip"><div class="avatar" id="avatar">O</div><div><b id="userName">Owner</b><small id="userRole">OWNER</small></div></div></div>
+        <div class="page-heading-hidden" aria-hidden="true"><span id="pageLabel">HOME</span><h2 id="pageTitle">Home</h2></div>
       </header>
       <section id="content" class="content"></section>
     </main>
