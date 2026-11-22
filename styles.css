@@ -433,3 +433,31 @@ tbody tr:last-child td:first-child{border-radius:0 0 0 9px}tbody tr:last-child t
   .sales-kpi-grid .stat strong,
   .purchase-kpi-grid .stat strong{display:block!important;width:100%;text-align:center!important;}
 }
+
+/* FINAL MOBILE NAV FIX: the navigation shell spans the viewport; its inner track
+   centers a fitting group and becomes horizontally scrollable only when needed. */
+@media(max-width:800px){
+  #bottomNav.bottom-nav{
+    display:flex!important;left:50%!important;right:auto!important;
+    width:calc(100vw - 24px)!important;max-width:calc(100vw - 24px)!important;
+    min-width:0!important;transform:translateX(-50%)!important;
+    justify-content:center!important;overflow:hidden!important;
+    box-sizing:border-box!important;
+  }
+  #bottomNav .bottom-nav-track{
+    display:flex!important;flex:1 1 auto!important;
+    width:100%!important;min-width:0!important;max-width:100%!important;
+    justify-content:flex-start!important;align-items:center!important;
+    gap:3px!important;overflow-x:auto!important;overflow-y:hidden!important;
+    box-sizing:border-box!important;
+  }
+  #bottomNav.nav-can-center .bottom-nav-track{
+    justify-content:center!important;overflow-x:hidden!important;
+  }
+  #bottomNav .bottom-nav-track button{
+    flex:0 0 54px!important;min-width:54px!important;max-width:54px!important;
+    height:45px!important;padding:3px 2px!important;gap:2px!important;
+  }
+  #bottomNav .bottom-nav-track button i{width:16px!important;height:16px!important}
+  #bottomNav .bottom-nav-track button small{font-size:8px!important;line-height:1.05!important}
+}
