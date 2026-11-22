@@ -202,3 +202,25 @@ tbody tr:last-child td:first-child{border-radius:0 0 0 9px}tbody tr:last-child t
  .menu-card-body strong{font-size:11px}
  .menu-card-body .btn{font-size:10px;padding:7px 3px}
 }
+
+/* UI refresh: cohesive Lucide iconography and floating, translucent mobile navigation */
+.nav-item{gap:12px}
+.nav-item>i[data-lucide]{width:18px;height:18px;flex:0 0 18px;stroke-width:2.1}
+.logout{display:flex;align-items:center;justify-content:center;gap:9px}
+.logout i{width:16px;height:16px}
+.stat .icon{display:grid;place-items:center}
+.stat .icon i{width:19px;height:19px;stroke-width:2.15}
+.inline-icon{width:16px;height:16px;vertical-align:-3px;margin-right:4px}
+.bottom-nav{display:none}
+@media(max-width:800px){
+ .main{padding-bottom:112px}
+ .bottom-nav{display:block;position:fixed;z-index:30;left:12px;right:12px;bottom:calc(9px + env(safe-area-inset-bottom));padding:6px;border:1px solid rgba(255,255,255,.78);border-radius:23px;background:rgba(255,255,255,.70);backdrop-filter:blur(22px) saturate(1.45);-webkit-backdrop-filter:blur(22px) saturate(1.45);box-shadow:0 10px 35px rgba(16,74,53,.16);overflow:hidden}
+ .bottom-nav-track{display:flex;align-items:center;gap:3px;overflow-x:auto;overflow-y:visible;scrollbar-width:none;overscroll-behavior-x:contain;padding:3px 2px 5px;scroll-snap-type:x proximity}
+ .bottom-nav-track::-webkit-scrollbar{display:none}
+ .bottom-nav button{position:relative;flex:0 0 64px;min-width:64px;height:55px;padding:5px 3px 4px;border:0;border-radius:16px;background:transparent;color:#748b82;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;scroll-snap-align:center;transition:transform .2s ease,color .2s ease,background .2s ease,box-shadow .2s ease}
+ .bottom-nav button i{width:19px;height:19px;stroke-width:2}
+ .bottom-nav button small{font-size:9px;line-height:1.1;font-weight:700;white-space:nowrap}
+ .bottom-nav button.active{color:#078b58;background:linear-gradient(145deg,rgba(255,255,255,.98),rgba(224,249,237,.94));transform:translateY(-7px);box-shadow:0 5px 13px rgba(7,139,88,.16),inset 0 0 0 1px rgba(7,139,88,.12)}
+ .bottom-nav button.active:before{content:"";position:absolute;top:-4px;width:22px;height:4px;border-radius:0 0 5px 5px;background:linear-gradient(90deg,#078b58,#18c58a)}
+ .bottom-nav button:active{transform:scale(.94)}
+}
