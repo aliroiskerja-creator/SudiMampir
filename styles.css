@@ -161,3 +161,44 @@ tbody tr:last-child td:first-child{border-radius:0 0 0 9px}tbody tr:last-child t
 }
 @media(max-width:420px){.main{padding-left:10px;padding-right:10px}.user-chip{gap:6px;padding:6px 8px}.user-chip b{font-size:10px}.user-chip small{font-size:8px}.transaction-sticky .form-grid{grid-template-columns:1fr 1fr}.content:has(.transaction-sticky)>.transaction-sticky{max-height:44vh}}
 @media print{body:before{display:none}}
+
+
+/* Sudi Mampir UI refinement v2 — presentational only */
+.branch-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(245px,1fr));gap:14px}
+.branch-card{background:linear-gradient(145deg,#fff 0%,#f2fbf6 100%);border:1px solid #dcefe5;border-radius:18px;padding:18px;box-shadow:0 8px 22px rgba(5,82,54,.06);transition:transform .2s,box-shadow .2s}
+.branch-card:hover{transform:translateY(-2px);box-shadow:0 13px 28px rgba(5,82,54,.11)}
+.branch-card-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.branch-icon{width:42px;height:42px;border-radius:13px;background:linear-gradient(135deg,#d9f7e8,#bcebd5);display:grid;place-items:center;color:#078b58;font-size:24px;font-weight:800}
+.branch-card h3{font-size:16px;margin:0 0 14px;color:#123d2d}
+.branch-meta{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-top:1px solid #e5f0e9;font-size:12px}
+.branch-meta span{color:#80958a}.branch-meta b{color:#28483a;text-align:right}
+.branch-actions{display:flex;justify-content:flex-end;margin-top:12px}
+.badge.success{background:#e2f8ed;color:#078b58}
+.pick-flash{background:linear-gradient(120deg,#ff9d22,#ffbd45)!important;color:#fff!important;box-shadow:0 0 0 3px rgba(255,160,35,.2),0 8px 18px rgba(255,145,0,.28)!important;transform:scale(.97);transition:background .12s,transform .12s,box-shadow .12s}
+.bottom-nav-track{display:flex;align-items:stretch;gap:5px;width:max-content;min-width:100%;padding:0 7px}
+.bottom-nav-track button{flex:0 0 61px;min-width:61px;padding:4px 2px;border-radius:12px;scroll-snap-align:center}
+.bottom-nav-track button span{width:30px;height:27px;display:grid;place-items:center;font-size:21px;line-height:1}
+.bottom-nav-track button.active span{background:#e2f8ed;border-radius:9px;color:#078b58}
+.bottom-nav-track button small{font-size:9px;white-space:nowrap}
+@media(max-width:800px){
+ .bottom-nav{display:block;overflow-x:auto;overflow-y:hidden;white-space:nowrap;justify-content:flex-start;scrollbar-width:none;-webkit-overflow-scrolling:touch;scroll-snap-type:x proximity}
+ .bottom-nav::-webkit-scrollbar{display:none}
+ .bottom-nav-track{justify-content:flex-start}
+ .bottom-nav-track button{display:grid;justify-items:center;align-content:center;gap:2px}
+ .content:has(.transaction-sticky) .menu-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:8px}
+ .menu-card{min-width:0;border-radius:13px}
+ .menu-card>img{height:86px;object-fit:cover}
+ .menu-card-body{padding:7px;gap:6px}
+ .menu-card-body b{font-size:11px;line-height:1.25;min-height:29px;overflow-wrap:anywhere}
+ .menu-card-body strong{font-size:12px}
+ .menu-card-body .btn{padding:8px 4px;font-size:11px;border-radius:9px}
+}
+@media(max-width:380px){
+ .bottom-nav-track button{flex-basis:57px;min-width:57px}
+ .content:has(.transaction-sticky) .menu-grid{gap:6px}
+ .menu-card>img{height:78px}
+ .menu-card-body{padding:6px}
+ .menu-card-body b{font-size:10px}
+ .menu-card-body strong{font-size:11px}
+ .menu-card-body .btn{font-size:10px;padding:7px 3px}
+}

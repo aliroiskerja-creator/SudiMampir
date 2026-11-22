@@ -41,12 +41,17 @@
       </header>
       <section id="content" class="content"></section>
     </main>
-    <nav class="bottom-nav" id="bottomNav">
-      <button class="active" data-page="dashboard"><span>🏠</span><small>Statistik</small></button>
-      <button data-page="menu"><span>🍽️</span><small>Menu</small></button>
-      <button data-page="purchaseList" data-purchase-access><span>🧾</span><small>Riwayat</small></button>
-      <button data-page="branches" data-owner><span>🏬</span><small>Cabang</small></button>
-      <button data-page="users" data-owner><span>👤</span><small>User</small></button>
+    <nav class="bottom-nav" id="bottomNav" aria-label="Navigasi utama">
+      <div class="bottom-nav-track">
+        <button class="active" data-page="dashboard"><span>⌂</span><small>Statistik</small></button>
+        <button data-page="menu"><span>🍽</span><small>Menu</small></button>
+        <button data-page="salesList"><span>▥</span><small>Penjualan</small></button>
+        <button data-page="purchaseList" data-purchase-access><span>▤</span><small>Belanja</small></button>
+        <button data-page="products"><span>▣</span><small>Produk</small></button>
+        <button data-page="branches" data-owner><span>▦</span><small>Cabang</small></button>
+        <button data-page="users" data-owner><span>♟</span><small>Pengguna</small></button>
+        <button data-page="paymentSettings" data-owner><span>⚙</span><small>Pengaturan</small></button>
+      </div>
     </nav>
   </div>
   <div id="toast" class="toast"></div>
