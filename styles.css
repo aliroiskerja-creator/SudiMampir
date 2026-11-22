@@ -394,3 +394,24 @@ tbody tr:last-child td:first-child{border-radius:0 0 0 9px}tbody tr:last-child t
   .mobile-launcher-logout .launcher-icon i{stroke:#df3f3f;stroke-width:2.5;}
 }
 @media(min-width:801px){.mobile-logout-top{display:none!important}}
+
+/* Penyempurnaan navigasi smartphone: lebih ringkas dan otomatis di tengah saat semua item muat. */
+@media(max-width:800px){
+ .bottom-nav{left:50%;right:auto;width:max-content;max-width:calc(100vw - 24px);min-width:0;transform:translateX(-50%);padding:4px 5px;border-radius:19px;overflow:hidden}
+ .bottom-nav-track{width:max-content;min-width:0;max-width:100%;gap:2px;padding:2px 3px 3px;justify-content:flex-start}
+ .bottom-nav button{flex:0 0 56px;min-width:56px;height:47px;padding:4px 2px;border-radius:13px;gap:2px}
+ .bottom-nav button i{width:17px;height:17px}
+ .bottom-nav button small{font-size:8px}
+ .bottom-nav button.active{transform:translateY(-4px)}
+ .bottom-nav button.active:before{width:18px;height:3px}
+ .bottom-nav-track.is-centered{width:max-content;min-width:0;max-width:100%;justify-content:center;overflow-x:hidden;gap:2px}
+ .bottom-nav-track.is-centered button{flex:0 0 56px;min-width:56px;max-width:56px}
+ .bottom-nav:has(.bottom-nav-track:not(.is-centered)){width:calc(100vw - 24px)}
+ .bottom-nav:has(.bottom-nav-track:not(.is-centered)) .bottom-nav-track{width:100%;min-width:100%;justify-content:flex-start;overflow-x:auto}
+}
+.product-drag-handle{border:0;background:#e5f8ee;color:#078b58;border-radius:8px;width:29px;height:29px;font-size:17px;font-weight:900;cursor:grab;touch-action:none;vertical-align:middle;margin-right:5px}
+.product-order-number{font-size:11px;color:#789187;vertical-align:middle}
+#productSortRows tr[draggable="true"]{cursor:grab}
+#productSortRows tr.is-dragging{opacity:.45;background:#dff8eb}
+#productSortRows tr td:first-child{white-space:nowrap}
+@media(max-width:800px){#productSortRows tr td:first-child{position:sticky;left:0;background:inherit}}
