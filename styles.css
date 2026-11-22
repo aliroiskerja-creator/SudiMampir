@@ -380,3 +380,17 @@ tbody tr:last-child td:first-child{border-radius:0 0 0 9px}tbody tr:last-child t
  .bottom-nav-track.is-centered{width:100%;min-width:100%;justify-content:center;overflow-x:hidden;gap:5px;padding-left:4px;padding-right:4px}
  .bottom-nav-track.is-centered button{flex:0 1 64px;min-width:54px;max-width:72px}
 }
+
+/* Navigasi bawah: pusatkan semua tombol jika seluruhnya muat, selain itu tetap geser horizontal. */
+@media(max-width:800px){
+  .bottom-nav-track{width:100%;min-width:100%;justify-content:flex-start;}
+  .bottom-nav-track.is-centered{width:100%;min-width:100%;justify-content:center;overflow-x:hidden;gap:5px;}
+  .bottom-nav-track.is-centered button{flex:0 1 64px;min-width:54px;max-width:72px;}
+  .topbar .header-actions{display:flex;align-items:center;gap:8px;width:auto;margin-left:auto;}
+  .mobile-logout-top{width:36px;height:36px;flex:0 0 36px;display:grid;place-items:center;border:1px solid #bfead3;border-radius:11px;background:linear-gradient(135deg,#e8fff2,#c9f5dc);color:#078b58;box-shadow:0 3px 9px rgba(7,139,88,.1);}
+  .mobile-logout-top i{width:18px;height:18px;stroke:#df3f3f;stroke-width:2.5;}
+  .mobile-home-mode .mobile-logout-top{display:none!important;}
+  .mobile-launcher-logout .launcher-icon{background:linear-gradient(140deg,#078b58,#22c98d);}
+  .mobile-launcher-logout .launcher-icon i{stroke:#df3f3f;stroke-width:2.5;}
+}
+@media(min-width:801px){.mobile-logout-top{display:none!important}}
