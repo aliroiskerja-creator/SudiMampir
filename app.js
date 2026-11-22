@@ -1,6 +1,7 @@
 const state={token:localStorage.getItem('sm_token')||'',user:null,page:'dashboard'};
 function refreshIcons(root=document){if(window.lucide&&typeof window.lucide.createIcons==='function')window.lucide.createIcons({root,attrs:{'stroke-width':2}})}
 document.addEventListener('DOMContentLoaded',()=>refreshIcons());
+window.addEventListener('resize',()=>updateBottomNavAlignment());
 const $=id=>document.getElementById(id);
 const api=async(action,payload={})=>{
   const res=await fetch('/api',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action,payload:{...payload,token:state.token}})});
@@ -13,7 +14,7 @@ function qrDisplayUrl(url){const s=String(url||'');const m=s.match(/[?&]id=([a-z
 function applyAppLogo(url){if(url)localStorage.setItem('sm_logo_url',url);const src=url?qrDisplayUrl(url):'';[['loginBrandMark','brand-mark'],['sidebarBrandMark','brand-mark small']].forEach(([id,cls])=>{const el=$(id);if(!el)return;el.className=cls;el.innerHTML=src?`<img src="${escapeHtml(src)}" alt="Logo Sudi Mampir">`:'SM'})}
 // Login bootstrap dikembalikan seperti versi sebelumnya; tidak memanggil API logo saat halaman dibuka.
 function escapeHtml(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
-function updateBottomNavAlignment(){const track=document.querySelector('#bottomNav .bottom-nav-track');if(!track)return;const nav=document.getElementById('bottomNav');const fits=track.scrollWidth<=nav.clientWidth-20;track.classList.toggle('is-centered',fits);}
+function updateBottomNavAlignment(){const track=document.querySelector('#bottomNav .bottom-nav-track');if(!track)return;const nav=document.getElementById('bottomNav');requestAnimationFrame(()=>{const available=Math.max(0,track.clientWidth);const needed=Array.from(track.children).filter(el=>!el.classList.contains('hidden')).reduce((sum,el)=>sum+el.getBoundingClientRect().width,0);const gaps=Math.max(0,track.children.length-1)*3;const fits=needed+gaps<=available+1;track.classList.toggle('is-centered',fits);});}
 function showApp(){ $('loginView').classList.add('hidden');$('appView').classList.remove('hidden');$('userName').textContent=state.user.nama;$('userRole').textContent=state.user.role;$('avatar').textContent=(state.user.nama||'U').slice(0,1).toUpperCase();document.querySelectorAll('[data-owner]').forEach(x=>x.classList.toggle('hidden',state.user.role!=='OWNER'));document.querySelectorAll('[data-purchase-access]').forEach(x=>x.classList.toggle('hidden',state.user.role==='KASIR'));updateBottomNavAlignment();renderMobileHome()}
 function showLogin(){ $('appView').classList.add('hidden');$('loginView').classList.remove('hidden')}
 $('loginForm').addEventListener('submit',async e=>{e.preventDefault();$('loginError').textContent='Memeriksa akun...';try{const d=await api('login',{username:$('username').value,password:$('password').value});state.token=d.token;state.user=d.user;localStorage.setItem('sm_token',state.token);$('password').value='';$('loginError').textContent='';showApp()}catch(err){$('loginError').textContent=err.message}});

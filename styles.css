@@ -415,3 +415,21 @@ tbody tr:last-child td:first-child{border-radius:0 0 0 9px}tbody tr:last-child t
 #productSortRows tr.is-dragging{opacity:.45;background:#dff8eb}
 #productSortRows tr td:first-child{white-space:nowrap}
 @media(max-width:800px){#productSortRows tr td:first-child{position:sticky;left:0;background:inherit}}
+
+
+/* Final mobile navigation alignment fix: measure against the full available bar width. */
+@media(max-width:800px){
+  .bottom-nav{left:12px!important;right:12px!important;width:auto!important;max-width:none!important;min-width:0!important;transform:none!important;overflow:hidden!important;}
+  .bottom-nav-track{display:flex!important;width:100%!important;min-width:0!important;max-width:100%!important;justify-content:flex-start!important;gap:3px!important;overflow-x:auto!important;overflow-y:hidden!important;padding:2px 3px 4px!important;}
+  .bottom-nav-track.is-centered{justify-content:center!important;overflow-x:hidden!important;}
+  .bottom-nav button{flex:0 0 54px!important;min-width:54px!important;max-width:54px!important;height:45px!important;padding:3px 2px!important;gap:2px!important;}
+  .bottom-nav button i{width:16px!important;height:16px!important;}
+  .bottom-nav button small{font-size:8px!important;line-height:1.05!important;}
+  .bottom-nav button.active{transform:translateY(-3px)!important;}
+}
+
+/* Angka nominal pada kartu rekap Daftar Penjualan dan Daftar Belanja rata tengah. */
+@media(max-width:800px){
+  .sales-kpi-grid .stat strong,
+  .purchase-kpi-grid .stat strong{display:block!important;width:100%;text-align:center!important;}
+}
