@@ -9,7 +9,7 @@
 <body>
   <div id="loginView" class="login-wrap">
     <div class="login-card">
-      <div class="brand-mark">SM</div><p class="eyebrow">SISTEM KASIR & MANAJEMEN USAHA</p>
+      <div class="brand-mark" id="loginBrandMark">SM</div><p class="eyebrow">SISTEM KASIR & MANAJEMEN USAHA</p>
       <h1>Sudi <span>Mampir</span></h1><p class="muted">Silakan masuk untuk melanjutkan</p>
       <form id="loginForm">
         <label>Username<input id="username" autocomplete="username" required placeholder="Masukkan username"></label>
@@ -22,12 +22,13 @@
 
   <div id="appView" class="app-shell hidden">
     <aside class="sidebar">
-      <div class="brand-row"><div class="brand-mark small">SM</div><div><b>Sudi Mampir</b><small>POS & Management</small></div></div>
+      <div class="brand-row"><div class="brand-mark small" id="sidebarBrandMark">SM</div><div><b>Sudi Mampir</b><small>POS & Management</small></div></div>
       <nav id="sideNav">
         <button class="nav-item active" data-page="dashboard">⌂ <span>Statistik</span></button>
         <button class="nav-item" data-page="branches" data-owner>▦ <span>Cabang</span></button>
         <button class="nav-item" data-page="users" data-owner>♙ <span>Pengguna</span></button>
         <button class="nav-item" data-page="purchaseList" data-purchase-access>▤ <span>Daftar Belanja</span></button>
+        <button class="nav-item" data-page="salesList">▥ <span>Daftar Penjualan</span></button>
         <button class="nav-item" data-page="products">▣ <span>Produk</span></button>
         <button class="nav-item" data-page="menu">🍽 <span>Daftar Menu</span></button>
         <button class="nav-item" data-page="paymentSettings" data-owner>⚙ <span>Pengaturan Pembayaran & Printer</span></button>
