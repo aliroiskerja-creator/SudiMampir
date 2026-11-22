@@ -1,7 +1,4 @@
 const state={token:localStorage.getItem('sm_token')||'',user:null,page:'dashboard'};
-function refreshIcons(root=document){if(window.lucide&&typeof window.lucide.createIcons==='function')window.lucide.createIcons({root,attrs:{'stroke-width':2}})}
-if(window.MutationObserver){const iconObserver=new MutationObserver(()=>refreshIcons(document));iconObserver.observe(document.documentElement,{childList:true,subtree:true});}
-document.addEventListener('DOMContentLoaded',()=>refreshIcons());
 const $=id=>document.getElementById(id);
 const api=async(action,payload={})=>{
   const res=await fetch('/api',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action,payload:{...payload,token:state.token}})});
@@ -24,8 +21,8 @@ async function navigate(page){state.page=page;document.querySelectorAll('[data-p
 async function renderDashboard(){
  const d=await api('dashboard');
  const days=d.chart||[];
- $('content').innerHTML=`<div class="stats finance-stats"><div class="stat"><span class="icon"><i data-lucide="shopping-cart"></i></span><span class="label">Total Penjualan (Hari Ini)</span><strong>${money(d.sales_today)}</strong></div><div class="stat"><span class="icon"><i data-lucide="shopping-bag"></i></span><span class="label">Total Belanja (Hari Ini)</span><strong>${money(d.purchases_today)}</strong></div><div class="stat"><span class="icon"><i data-lucide="wallet"></i></span><span class="label">Pendapatan Bersih (Hari Ini)</span><strong>${money(d.net_today)}</strong></div></div>
- <div class="panel chart-panel"><div class="panel-head"><h3><i data-lucide="chart-column" class="inline-icon"></i> Persentase Pendapatan Harian – ${days.length} Hari</h3><span class="badge">Bulan berjalan</span></div><div class="chart-wrap"><canvas id="incomeChart" aria-label="Grafik persentase pendapatan harian"></canvas></div><div class="chart-legend"><span>Persentase pendapatan bersih dibanding penjualan</span><b>${Number(d.today_percent||0).toFixed(1).replace('.',',')}% hari ini</b></div></div>
+ $('content').innerHTML=`<div class="stats finance-stats"><div class="stat"><span class="icon">🛒</span><span class="label">Total Penjualan (Hari Ini)</span><strong>${money(d.sales_today)}</strong></div><div class="stat"><span class="icon">🧺</span><span class="label">Total Belanja (Hari Ini)</span><strong>${money(d.purchases_today)}</strong></div><div class="stat"><span class="icon">◉</span><span class="label">Pendapatan Bersih (Hari Ini)</span><strong>${money(d.net_today)}</strong></div></div>
+ <div class="panel chart-panel"><div class="panel-head"><h3>▥ Persentase Pendapatan Harian – ${days.length} Hari</h3><span class="badge">Bulan berjalan</span></div><div class="chart-wrap"><canvas id="incomeChart" aria-label="Grafik persentase pendapatan harian"></canvas></div><div class="chart-legend"><span>Persentase pendapatan bersih dibanding penjualan</span><b>${Number(d.today_percent||0).toFixed(1).replace('.',',')}% hari ini</b></div></div>
  <div class="panel"><div class="panel-head"><h3>Cabang yang dapat diakses</h3></div>${d.cabang.length?`<div class="table-wrap"><table><thead><tr><th>Nama Cabang</th><th>Status</th></tr></thead><tbody>${d.cabang.map(b=>`<tr><td>${escapeHtml(b.nama_cabang)}</td><td><span class="badge">Aktif</span></td></tr>`).join('')}</tbody></table></div>`:'<div class="empty">Belum ada cabang.</div>'}</div>`;
  drawIncomeChart(days);
 }

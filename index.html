@@ -24,16 +24,16 @@
     <aside class="sidebar">
       <div class="brand-row"><div class="brand-mark small" id="sidebarBrandMark">SM</div><div><b>Sudi Mampir</b><small>POS & Management</small></div></div>
       <nav id="sideNav">
-        <button class="nav-item active" data-page="dashboard"><i data-lucide="layout-dashboard"></i><span>Statistik</span></button>
-        <button class="nav-item" data-page="branches" data-owner><i data-lucide="store"></i><span>Cabang</span></button>
-        <button class="nav-item" data-page="users" data-owner><i data-lucide="users"></i><span>Pengguna</span></button>
-        <button class="nav-item" data-page="purchaseList" data-purchase-access><i data-lucide="clipboard-list"></i><span>Daftar Belanja</span></button>
-        <button class="nav-item" data-page="salesList"><i data-lucide="chart-column"></i><span>Daftar Penjualan</span></button>
-        <button class="nav-item" data-page="products"><i data-lucide="package"></i><span>Produk</span></button>
-        <button class="nav-item" data-page="menu"><i data-lucide="utensils"></i><span>Daftar Menu</span></button>
-        <button class="nav-item" data-page="paymentSettings" data-owner><i data-lucide="settings-2"></i><span>Pengaturan Pembayaran & Printer</span></button>
+        <button class="nav-item active" data-page="dashboard">🏠 <span>Statistik</span></button>
+        <button class="nav-item" data-page="branches" data-owner>🏬 <span>Cabang</span></button>
+        <button class="nav-item" data-page="users" data-owner>👥 <span>Pengguna</span></button>
+        <button class="nav-item" data-page="purchaseList" data-purchase-access>🧾 <span>Daftar Belanja</span></button>
+        <button class="nav-item" data-page="salesList">📊 <span>Daftar Penjualan</span></button>
+        <button class="nav-item" data-page="products">📦 <span>Produk</span></button>
+        <button class="nav-item" data-page="menu">🍽️ <span>Daftar Menu</span></button>
+        <button class="nav-item" data-page="paymentSettings" data-owner>⚙️ <span>Pengaturan Pembayaran & Printer</span></button>
       </nav>
-      <button id="logoutBtn" class="logout"><i data-lucide="log-out"></i> Keluar</button>
+      <button id="logoutBtn" class="logout">↪ Keluar</button>
     </aside>
     <main class="main">
       <header class="topbar"><div><span class="eyebrow">SUDI MAMPIR / <span id="pageLabel">DASHBOARD</span></span><h2 id="pageTitle">Dashboard</h2></div>
@@ -43,19 +43,18 @@
     </main>
     <nav class="bottom-nav" id="bottomNav" aria-label="Navigasi utama">
       <div class="bottom-nav-track">
-        <button class="active" data-page="dashboard"><i data-lucide="layout-dashboard"></i><small>Home</small></button>
-        <button data-page="menu"><i data-lucide="utensils"></i><small>Menu</small></button>
-        <button data-page="salesList"><i data-lucide="receipt-text"></i><small>Penjualan</small></button>
-        <button data-page="purchaseList" data-purchase-access><i data-lucide="shopping-basket"></i><small>Belanja</small></button>
-        <button data-page="products"><i data-lucide="package"></i><small>Produk</small></button>
-        <button data-page="branches" data-owner><i data-lucide="store"></i><small>Cabang</small></button>
-        <button data-page="users" data-owner><i data-lucide="users"></i><small>Pengguna</small></button>
-        <button data-page="paymentSettings" data-owner><i data-lucide="settings-2"></i><small>Pengaturan</small></button>
+        <button class="active" data-page="dashboard"><span>⌂</span><small>Statistik</small></button>
+        <button data-page="menu"><span>🍽</span><small>Menu</small></button>
+        <button data-page="salesList"><span>▥</span><small>Penjualan</small></button>
+        <button data-page="purchaseList" data-purchase-access><span>▤</span><small>Belanja</small></button>
+        <button data-page="products"><span>▣</span><small>Produk</small></button>
+        <button data-page="branches" data-owner><span>▦</span><small>Cabang</small></button>
+        <button data-page="users" data-owner><span>♟</span><small>Pengguna</small></button>
+        <button data-page="paymentSettings" data-owner><span>⚙</span><small>Pengaturan</small></button>
       </div>
     </nav>
   </div>
   <div id="toast" class="toast"></div>
-  <script src="https://cdn.jsdelivr.net/npm/lucide@0.468.0/dist/umd/lucide.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
   <script src="/app.js"></script>
 </body></html>
