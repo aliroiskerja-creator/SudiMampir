@@ -531,3 +531,27 @@ tbody tr:last-child td:first-child{border-radius:0 0 0 9px}tbody tr:last-child t
 .menu-product-rice input:disabled{opacity:.35}
 .rice-price-notice{font-size:11px;font-weight:800;color:#087443;padding:7px 9px;border-radius:9px;background:#eafff1}
 @media(max-width:640px){.menu-product-checks .menu-product-check{min-height:58px;padding:8px}.menu-product-rice small{font-size:10px}}
+
+/* Header Daftar Menu minimalis: judul + ikon pengaturan, pencarian, dan keranjang */
+.menu-browser-panel .menu-main-head{display:flex;align-items:center;justify-content:space-between;flex-wrap:nowrap;gap:8px;margin-bottom:10px}
+.menu-title-wrap{min-width:0;flex:1}
+.menu-title-wrap h3{margin:0;font-size:15px;white-space:nowrap;letter-spacing:-.2px}
+.menu-head-actions{display:flex;align-items:center;justify-content:flex-end;gap:7px;flex:none;margin-left:auto}
+.menu-icon-trigger{width:38px;height:38px;display:inline-flex;align-items:center;justify-content:center;border:1px solid #cce8d8;border-radius:13px;background:linear-gradient(145deg,#f0fff5,#dff8e9);color:#087443;box-shadow:0 4px 12px #08744312;cursor:pointer;flex:none}
+.menu-icon-trigger svg{width:19px;height:19px}
+.menu-cart-trigger{width:40px;height:40px;flex:none}
+.menu-search-collapsible{margin:10px 0 12px;min-height:43px;animation:menuSearchReveal .16s ease}
+.menu-search-collapsible.hidden{display:none!important}
+.menu-search-collapsible span{display:flex;align-items:center}
+.menu-search-collapsible span svg{width:18px;height:18px}
+.menu-group-grid{margin-top:8px}
+@keyframes menuSearchReveal{from{opacity:0;transform:translateY(-5px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:640px){
+ .menu-browser-panel .menu-main-head{gap:5px;margin-bottom:8px}
+ .menu-title-wrap h3{font-size:14px}
+ .menu-head-actions{gap:5px}
+ .menu-icon-trigger{width:35px;height:35px;border-radius:11px}
+ .menu-icon-trigger svg{width:18px;height:18px}
+ .menu-cart-trigger{width:37px;height:37px}
+ .menu-search-collapsible{margin:8px 0 10px}
+}
