@@ -503,3 +503,21 @@ tbody tr:last-child td:first-child{border-radius:0 0 0 9px}tbody tr:last-child t
 .menu-product-filter{display:grid;gap:6px;margin-top:12px}.menu-product-checks{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 10px;max-height:300px;padding:12px}.menu-product-checks .menu-product-check{display:grid;grid-template-columns:18px minmax(0,1fr);align-items:center;gap:8px;min-height:40px;padding:7px 9px;border:1px solid #e3eee7;border-radius:10px;background:#fbfefc;font-size:12px;line-height:1.35;overflow-wrap:anywhere}.menu-product-checks .menu-product-check input{width:16px;height:16px;margin:0;accent-color:#079455;justify-self:center}.menu-product-checks .menu-product-check span{min-width:0;white-space:normal}.rice-product-setting{display:grid;gap:6px;margin:12px 0;padding:12px;border:1px solid #cfe8d8;border-radius:12px;background:#f4fff7}.rice-product-setting select{width:100%}.rice-product-setting small{line-height:1.45}.menu-group-editor .form-actions{display:flex;flex-wrap:wrap;gap:8px}.menu-group-editor .form-actions button{min-width:125px}
 @media(max-width:640px){.menu-main-head{align-items:flex-start}.menu-head-actions{gap:7px}.menu-cart-trigger{width:39px;height:39px}.cart-backdrop{align-items:flex-end}.cart-drawer{width:100%;height:min(88dvh,760px);border-radius:22px 22px 0 0;padding:15px 13px calc(14px + env(safe-area-inset-bottom));animation:cartDrawerUp .22s ease}.cart-drawer .form-grid{grid-template-columns:1fr 1fr}.cart-drawer .form-grid label{font-size:11px}.cart-drawer input,.cart-drawer select{font-size:12px;padding:9px}.menu-product-checks{grid-template-columns:1fr;max-height:260px;gap:5px;padding:8px}.menu-product-checks .menu-product-check{min-height:37px;padding:6px 8px}.menu-variant-row{align-items:center}.menu-variant-actions .btn,.menu-variant-actions .btn-light{padding:7px 8px;font-size:10px}.rice-add-btn small{font-size:8px}}
 @keyframes cartDrawerUp{from{transform:translateY(35px);opacity:.6}to{transform:translateY(0);opacity:1}}
+
+/* Penyederhanaan halaman kasir: sembunyikan metadata cabang dan grid 3 kolom di ponsel */
+.menu-branch-hidden{display:none!important}
+.rice-remove-btn{display:flex;align-items:center;justify-content:center;gap:4px;color:#a34b08!important;border-color:#f2d3a9!important;background:#fff8ed!important}
+.rice-remove-btn small{font-size:9px;font-weight:800}
+@media(max-width:640px){
+ .menu-group-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}
+ .menu-group-card{border-radius:12px}
+ .menu-group-card>img{height:66px}
+ .menu-group-count{top:4px;right:4px;padding:3px 5px;font-size:8px}
+ .menu-group-copy{gap:2px;padding:6px 5px 7px}
+ .menu-group-copy b{font-size:10px;line-height:1.2;overflow-wrap:anywhere}
+ .menu-group-copy small{font-size:8px;line-height:1.15}
+ .menu-group-arrow{width:19px;height:19px;right:5px;bottom:6px;font-size:16px}
+ .menu-variant-actions{min-width:84px}
+ .menu-variant-actions .btn,.menu-variant-actions .btn-light{padding:7px 6px;font-size:9px}
+ .rice-remove-btn small{font-size:8px}
+}
