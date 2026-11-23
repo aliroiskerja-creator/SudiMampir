@@ -555,3 +555,24 @@ tbody tr:last-child td:first-child{border-radius:0 0 0 9px}tbody tr:last-child t
  .menu-cart-trigger{width:37px;height:37px}
  .menu-search-collapsible{margin:8px 0 10px}
 }
+
+/* Master Produk: form tambah/edit ringkas, berada di atas daftar dan sticky */
+#productForm:not(:empty){position:sticky;top:8px;z-index:15;margin:0 0 14px;}
+#productForm:not(:empty)>.panel{margin-top:0;padding:15px 18px;border:1px solid #cce8d8;background:rgba(255,255,255,.97);backdrop-filter:blur(12px);box-shadow:0 10px 28px rgba(5,82,54,.13)}
+#productForm:not(:empty)>.panel>h3{margin:0 0 9px;font-size:15px}
+#productForm #saveProductForm.form-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:9px 12px;align-items:end;margin:0}
+#productForm #saveProductForm.form-grid>label{min-width:0;gap:5px;font-size:11px}
+#productForm #saveProductForm input{min-width:0;padding:10px 11px;font-size:12px;border-radius:10px}
+#productForm #saveProductForm .form-actions{grid-column:1/-1;margin-top:2px;gap:8px}
+#productForm #saveProductForm .form-actions .btn,
+#productForm #saveProductForm .form-actions .btn-light{min-height:32px;padding:7px 13px;font-size:11px}
+@media(max-width:800px){
+ #productForm:not(:empty){top:5px;margin-bottom:10px}
+ #productForm:not(:empty)>.panel{padding:11px 12px;border-radius:15px}
+ #productForm #saveProductForm.form-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 9px}
+ #productForm #saveProductForm.form-grid>label{font-size:10px;gap:4px}
+ #productForm #saveProductForm input{padding:9px 8px;font-size:11px;border-radius:9px}
+ #productForm #saveProductForm .form-actions{grid-column:1/-1;margin-top:1px}
+ #productForm #saveProductForm .form-actions .btn,
+ #productForm #saveProductForm .form-actions .btn-light{min-height:30px;padding:7px 11px;font-size:10px}
+}
