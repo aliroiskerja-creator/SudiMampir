@@ -576,3 +576,23 @@ tbody tr:last-child td:first-child{border-radius:0 0 0 9px}tbody tr:last-child t
  #productForm #saveProductForm .form-actions .btn,
  #productForm #saveProductForm .form-actions .btn-light{min-height:30px;padding:7px 11px;font-size:10px}
 }
+
+
+/* Keranjang mobile/desktop: hanya daftar pesanan yang dapat digulir. */
+.cart-drawer{overflow:hidden;min-height:0;max-height:100dvh}
+.cart-drawer-head,.cart-drawer>.purchase-total,.cart-drawer>.form-grid,.cart-drawer>.form-actions{flex:0 0 auto}
+.cart-drawer #cartRows{flex:1 1 0;min-height:0;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;scrollbar-gutter:stable}
+.cart-drawer #cartRows>.table-wrap{overflow-x:auto;overflow-y:visible;max-height:none}
+.cart-drawer #cartRows table{margin-bottom:0}
+.cart-drawer .purchase-total{flex-shrink:0}
+.cart-drawer .form-grid{flex-shrink:0}
+.cart-drawer .form-actions{flex-shrink:0;margin-top:0;padding-top:2px}
+@media(max-width:640px){
+ .cart-drawer{height:min(88dvh,760px);max-height:88dvh;overflow:hidden;gap:9px}
+ .cart-drawer-head{padding-bottom:9px}
+ .cart-drawer #cartRows{min-height:0;flex:1 1 0;overflow-y:auto}
+ .cart-drawer .purchase-total{padding:8px 0;border-top:1px solid #e3eee7}
+ .cart-drawer .purchase-total strong{font-size:22px}
+ .cart-drawer .form-grid{gap:7px;margin:0}
+ .cart-drawer .form-actions{padding-bottom:0}
+}
