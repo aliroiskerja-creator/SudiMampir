@@ -782,3 +782,44 @@ tbody tr:last-child td:first-child{border-radius:0 0 0 9px}tbody tr:last-child t
 @media(max-width:360px){
  #content #purchaseLineRows .purchase-line{grid-template-columns:minmax(0,1fr) minmax(0,.48fr) minmax(0,.5fr) minmax(0,.78fr) minmax(0,.62fr) 28px!important;}
 }
+
+/* Final fix: keep purchase delete icon on the same row as all item fields */
+#content #purchaseLineRows .purchase-line{
+  display:grid!important;
+  grid-template-columns:minmax(0,1.25fr) minmax(0,.48fr) minmax(0,.55fr) minmax(0,.72fr) minmax(0,.52fr) 30px!important;
+  grid-auto-flow:row!important;
+  gap:4px!important;
+  align-items:end!important;
+  width:100%!important;
+  min-width:0!important;
+  box-sizing:border-box!important;
+}
+#content #purchaseLineRows .purchase-line>label,
+#content #purchaseLineRows .purchase-line>.line-subtotal,
+#content #purchaseLineRows .purchase-line>.line-remove{
+  min-width:0!important;
+  max-width:100%!important;
+  box-sizing:border-box!important;
+}
+#content #purchaseLineRows .purchase-line>label:first-child{grid-column:auto!important;}
+#content #purchaseLineRows .purchase-line .line-remove{
+  grid-column:6!important;
+  grid-row:1!important;
+  justify-self:end!important;
+  align-self:end!important;
+  width:28px!important;
+  height:28px!important;
+  min-width:28px!important;
+  margin:0!important;
+}
+#content #purchaseLineRows .purchase-line select,
+#content #purchaseLineRows .purchase-line input{min-width:0!important;max-width:100%!important;box-sizing:border-box!important;}
+@media(max-width:380px){
+  #content #purchaseLineRows .purchase-line{
+    grid-template-columns:minmax(0,1.15fr) minmax(0,.44fr) minmax(0,.5fr) minmax(0,.68fr) minmax(0,.48fr) 26px!important;
+    gap:3px!important;
+    padding-left:3px!important;padding-right:3px!important;
+  }
+  #content #purchaseLineRows .purchase-line .line-remove{width:26px!important;height:26px!important;min-width:26px!important;padding:4px!important;}
+  #content #purchaseLineRows .purchase-line .line-remove svg{width:13px!important;height:13px!important;}
+}
