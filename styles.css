@@ -596,3 +596,12 @@ tbody tr:last-child td:first-child{border-radius:0 0 0 9px}tbody tr:last-child t
  .cart-drawer .form-grid{gap:7px;margin:0}
  .cart-drawer .form-actions{padding-bottom:0}
 }
+
+/* Daftar Menu: kartu kategori lebih tipis dengan memangkas area foto dari sisi atas */
+@media(max-width:640px){
+ .menu-group-card>img{
+  height:50px;
+  object-position:center bottom;
+ }
+ .menu-group-count{top:3px;right:4px}
+}
