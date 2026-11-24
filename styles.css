@@ -823,3 +823,12 @@ tbody tr:last-child td:first-child{border-radius:0 0 0 9px}tbody tr:last-child t
   #content #purchaseLineRows .purchase-line .line-remove{width:26px!important;height:26px!important;min-width:26px!important;padding:4px!important;}
   #content #purchaseLineRows .purchase-line .line-remove svg{width:13px!important;height:13px!important;}
 }
+
+/* Master Satuan: pengelolaan satuan bahan baku */
+.unit-manager-panel{border-color:#cfe9da;background:linear-gradient(145deg,#fff,#f7fff9)}
+.unit-edit-grid{margin-top:14px;padding:15px;border:1px solid var(--line);border-radius:14px;background:#f8fcf9;align-items:end}
+.unit-edit-grid h4{grid-column:1/-1;margin:0;color:#174b32;font-size:14px}
+.unit-edit-grid label{min-width:0}
+.unit-edit-grid .form-actions{grid-column:1/-1;margin-top:0}
+@media(max-width:800px){.unit-edit-grid{grid-template-columns:1fr 1fr}.unit-edit-grid h4,.unit-edit-grid .form-actions{grid-column:1/-1}}
+@media(max-width:430px){.unit-edit-grid{grid-template-columns:1fr}}
