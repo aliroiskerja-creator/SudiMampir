@@ -832,3 +832,12 @@ tbody tr:last-child td:first-child{border-radius:0 0 0 9px}tbody tr:last-child t
 .unit-edit-grid .form-actions{grid-column:1/-1;margin-top:0}
 @media(max-width:800px){.unit-edit-grid{grid-template-columns:1fr 1fr}.unit-edit-grid h4,.unit-edit-grid .form-actions{grid-column:1/-1}}
 @media(max-width:430px){.unit-edit-grid{grid-template-columns:1fr}}
+
+/* Pagination tabel: 10 data atau seluruh data */
+.pagination-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:10px 2px;margin:4px 0 10px;color:var(--muted,#64748b);font-size:13px}
+.pagination-size{display:flex;align-items:center;gap:8px;font-weight:600}
+.pagination-size select{border:1px solid #d7e2dc;border-radius:9px;padding:7px 10px;background:#fff;color:#244438;font:inherit}
+.pagination-buttons{display:flex;align-items:center;gap:9px}
+.pagination-buttons button{min-width:34px;padding:6px 10px}
+.pagination-buttons button:disabled{opacity:.4;cursor:not-allowed}
+@media(max-width:600px){.pagination-bar{align-items:flex-start}.pagination-info{width:100%;order:3}.pagination-buttons{margin-left:auto}}
