@@ -755,3 +755,30 @@ tbody tr:last-child td:first-child{border-radius:0 0 0 9px}tbody tr:last-child t
  #content #purchaseLineRows .line-subtotal b{font-size:9px!important;}
  #content #purchaseLineRows .line-remove{padding:7px 2px!important;font-size:7px!important;}
 }
+
+
+/* Input Belanja: compact product column and icon-only remove action */
+#content #purchaseLineRows .purchase-line{
+  grid-template-columns:minmax(0,1fr) minmax(0,.55fr) minmax(0,.58fr) minmax(0,.82fr) minmax(0,.68fr) 34px!important;
+}
+#content #purchaseLineRows .line-remove{
+  width:32px!important;height:32px!important;min-width:32px!important;
+  display:flex!important;align-items:center!important;justify-content:center!important;
+  padding:6px!important;border-radius:9px!important;font-size:0!important;
+  color:#dc4b4b!important;background:#fff1f1!important;border:1px solid #ffd7d7!important;
+}
+#content #purchaseLineRows .line-remove svg{
+  width:16px!important;height:16px!important;display:block!important;
+  fill:none!important;stroke:currentColor!important;stroke-width:1.8!important;
+  stroke-linecap:round!important;stroke-linejoin:round!important;
+}
+@media(max-width:800px){
+ #content #purchaseLineRows .purchase-line{
+  grid-template-columns:minmax(0,1fr) minmax(0,.52fr) minmax(0,.55fr) minmax(0,.82fr) minmax(0,.68fr) 30px!important;
+ }
+ #content #purchaseLineRows .line-remove{width:28px!important;height:28px!important;min-width:28px!important;padding:5px!important;}
+ #content #purchaseLineRows .line-remove svg{width:14px!important;height:14px!important;}
+}
+@media(max-width:360px){
+ #content #purchaseLineRows .purchase-line{grid-template-columns:minmax(0,1fr) minmax(0,.48fr) minmax(0,.5fr) minmax(0,.78fr) minmax(0,.62fr) 28px!important;}
+}
