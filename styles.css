@@ -596,3 +596,162 @@ tbody tr:last-child td:first-child{border-radius:0 0 0 9px}tbody tr:last-child t
  .cart-drawer .form-grid{gap:7px;margin:0}
  .cart-drawer .form-actions{padding-bottom:0}
 }
+
+/* Daftar Menu: kartu kategori lebih tipis dengan memangkas area foto dari sisi atas */
+@media(max-width:640px){
+ .menu-group-card>img{
+  height:50px;
+  object-position:center bottom;
+ }
+ .menu-group-count{top:3px;right:4px}
+}
+
+
+/* Form Input Belanja: baris ringkas dan sejajar */
+#purchaseHead.purchase-head-grid{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:10px;
+  align-items:end;
+  margin:0;
+}
+#purchaseHead.purchase-head-grid>label,
+#content .payment-grid>label{
+  min-width:0;
+  gap:5px;
+  font-size:11px;
+}
+#purchaseHead.purchase-head-grid input,
+#purchaseHead.purchase-head-grid select,
+#content .payment-grid input,
+#content .payment-grid select{
+  min-width:0;
+  padding:10px 9px;
+  font-size:11px;
+}
+#content .payment-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:10px;
+  margin-top:12px;
+}
+#content #purchaseLineRows .purchase-line{
+  display:grid;
+  grid-template-columns:minmax(0,1.3fr) minmax(0,.55fr) minmax(0,.62fr) minmax(0,.9fr) minmax(0,.75fr) 48px;
+  gap:7px;
+  align-items:end;
+  padding:10px 0;
+}
+#content #purchaseLineRows .purchase-line>label{
+  min-width:0;
+  gap:5px;
+  font-size:11px;
+}
+#content #purchaseLineRows .purchase-line input,
+#content #purchaseLineRows .purchase-line select{
+  min-width:0;
+  width:100%;
+  padding:10px 7px;
+  font-size:11px;
+}
+#content #purchaseLineRows .line-subtotal{
+  min-width:0;
+  overflow:hidden;
+  padding:8px 2px;
+  gap:5px;
+}
+#content #purchaseLineRows .line-subtotal b{
+  font-size:12px;
+  white-space:nowrap;
+}
+#content #purchaseLineRows .line-remove{
+  min-width:0;
+  padding:9px 5px;
+  font-size:10px;
+  white-space:nowrap;
+}
+@media(max-width:800px){
+  #purchaseHead.purchase-head-grid{
+    grid-template-columns:repeat(4,minmax(0,1fr));
+    gap:7px;
+  }
+  #purchaseHead.purchase-head-grid>label,
+  #content .payment-grid>label{
+    font-size:9px;
+    gap:4px;
+  }
+  #purchaseHead.purchase-head-grid input,
+  #purchaseHead.purchase-head-grid select,
+  #content .payment-grid input,
+  #content .payment-grid select{
+    padding:9px 5px;
+    font-size:9px;
+    border-radius:10px;
+  }
+  #content .payment-grid{
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:7px;
+    margin-top:10px;
+  }
+  #content #purchaseLineRows .purchase-line{
+    grid-template-columns:minmax(0,1.3fr) minmax(0,.55fr) minmax(0,.62fr) minmax(0,.9fr) minmax(0,.75fr) 40px;
+    gap:4px;
+    padding:9px 0;
+  }
+  #content #purchaseLineRows .purchase-line>label{
+    font-size:9px;
+    gap:4px;
+  }
+  #content #purchaseLineRows .purchase-line input,
+  #content #purchaseLineRows .purchase-line select{
+    padding:8px 4px;
+    font-size:9px;
+    border-radius:9px;
+  }
+  #content #purchaseLineRows .line-subtotal small{font-size:8px}
+  #content #purchaseLineRows .line-subtotal b{font-size:10px}
+  #content #purchaseLineRows .line-remove{
+    padding:8px 3px;
+    font-size:8px;
+    border-radius:8px;
+  }
+}
+@media(max-width:360px){
+  #content #purchaseLineRows .purchase-line{
+    grid-template-columns:minmax(0,1.2fr) minmax(0,.5fr) minmax(0,.55fr) minmax(0,.85fr) minmax(0,.7fr) 34px;
+    gap:3px;
+  }
+  #content #purchaseLineRows .line-remove{font-size:7px;padding:7px 2px}
+}
+
+
+/* FORCE REFRESH + compact inline purchase form layout (v2) */
+#content form#purchaseHead.purchase-head-grid{
+ display:grid!important;
+ grid-template-columns:repeat(4,minmax(0,1fr))!important;
+ gap:8px!important;
+ align-items:end!important;
+}
+#content form#purchaseHead.purchase-head-grid>label{min-width:0!important;display:grid!important;gap:4px!important;font-size:10px!important;}
+#content form#purchaseHead.purchase-head-grid input,#content form#purchaseHead.purchase-head-grid select{width:100%!important;min-width:0!important;padding:9px 6px!important;font-size:10px!important;}
+#content .panel .payment-grid{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:8px!important;}
+#content .panel .payment-grid>label{min-width:0!important;display:grid!important;gap:4px!important;font-size:10px!important;}
+#content .panel .payment-grid input,#content .panel .payment-grid select{width:100%!important;min-width:0!important;padding:9px 6px!important;font-size:10px!important;}
+#content #purchaseLineRows .purchase-line{display:grid!important;grid-template-columns:minmax(0,1.25fr) minmax(0,.55fr) minmax(0,.58fr) minmax(0,.85fr) minmax(0,.72fr) 40px!important;gap:5px!important;align-items:end!important;}
+#content #purchaseLineRows .purchase-line>label{display:grid!important;min-width:0!important;gap:4px!important;font-size:10px!important;}
+#content #purchaseLineRows .purchase-line input,#content #purchaseLineRows .purchase-line select{width:100%!important;min-width:0!important;padding:8px 5px!important;font-size:10px!important;}
+#content #purchaseLineRows .line-subtotal{min-width:0!important;overflow:hidden!important;padding:7px 1px!important;}
+#content #purchaseLineRows .line-subtotal b{font-size:10px!important;white-space:nowrap!important;}
+#content #purchaseLineRows .line-remove{min-width:0!important;padding:7px 3px!important;font-size:9px!important;white-space:nowrap!important;}
+@media(max-width:800px){
+ #content form#purchaseHead.purchase-head-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:6px!important;}
+ #content form#purchaseHead.purchase-head-grid>label,#content .panel .payment-grid>label{font-size:8px!important;gap:3px!important;}
+ #content form#purchaseHead.purchase-head-grid input,#content form#purchaseHead.purchase-head-grid select,#content .panel .payment-grid input,#content .panel .payment-grid select{padding:8px 4px!important;font-size:9px!important;}
+ #content .panel .payment-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:6px!important;}
+ #content #purchaseLineRows .purchase-line{grid-template-columns:minmax(0,1.25fr) minmax(0,.52fr) minmax(0,.55fr) minmax(0,.82fr) minmax(0,.68fr) 34px!important;gap:3px!important;padding:8px 5px!important;}
+ #content #purchaseLineRows .purchase-line>label{font-size:8px!important;gap:3px!important;}
+ #content #purchaseLineRows .purchase-line input,#content #purchaseLineRows .purchase-line select{padding:7px 3px!important;font-size:9px!important;}
+ #content #purchaseLineRows .line-subtotal small{font-size:7px!important;}
+ #content #purchaseLineRows .line-subtotal b{font-size:9px!important;}
+ #content #purchaseLineRows .line-remove{padding:7px 2px!important;font-size:7px!important;}
+}
