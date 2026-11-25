@@ -901,3 +901,9 @@ tbody tr:last-child td:first-child{border-radius:0 0 0 9px}tbody tr:last-child t
  #content #purchaseLineRows .line-note-label{font-size:9px!important}
  #content #purchaseLineRows .line-note-btn{min-height:36px;padding:6px 3px;font-size:9px}
 }
+
+/* Latar dasar hijau muda pilihan pengguna: warna polos tanpa gradient */
+:root{--bg:#A6F2A6}
+html,body{background-color:#A6F2A6!important;background-image:none!important}
+body,.app-shell,.main,.login-wrap{background-color:#A6F2A6!important;background-image:none!important}
+body:before,.sidebar:after,.topbar:before,.topbar:after{display:none!important;content:none!important}
