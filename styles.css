@@ -891,3 +891,19 @@ tbody tr:last-child td:first-child{border-radius:0 0 0 9px}tbody tr:last-child t
 #content #purchaseLineRows .purchase-line .line-subtotal b{white-space:nowrap!important;font-size:11px!important}
 @media(max-width:800px){#content form#purchaseHead.purchase-head-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1.05fr) 32px!important;gap:6px!important}#content form#purchaseHead.purchase-head-grid>label{font-size:9px!important;gap:4px!important}#content form#purchaseHead.purchase-head-grid input,#content form#purchaseHead.purchase-head-grid select{padding:8px 5px!important;font-size:9px!important}#content .purchase-upload-btn{min-height:34px;font-size:9px;padding:5px 2px;gap:3px}#content .purchase-upload-btn span{font-size:15px}#content .purchase-upload-btn small{font-size:7px}#content .purchase-file-name{font-size:7px}#content .purchase-group-remove{width:30px;height:30px;min-width:30px;padding:5px}#content .purchase-group-remove svg{width:15px;height:15px}#content #purchaseLineRows .purchase-line{grid-template-columns:minmax(0,1.25fr) minmax(0,.48fr) minmax(0,.55fr) minmax(0,.72fr) minmax(0,.62fr)!important;gap:5px!important;padding:8px 0!important}#content #purchaseLineRows .purchase-line>label{font-size:9px!important}#content #purchaseLineRows .purchase-line input,#content #purchaseLineRows .purchase-line select{padding:8px 4px!important;font-size:9px!important}#content #purchaseLineRows .line-subtotal small{font-size:8px!important}#content #purchaseLineRows .line-subtotal b{font-size:9px!important}}
 @media(max-width:380px){#content form#purchaseHead.purchase-head-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) 28px!important;gap:4px!important}#content .purchase-upload-btn{font-size:8px}#content #purchaseLineRows .purchase-line{grid-template-columns:minmax(0,1.15fr) minmax(0,.43fr) minmax(0,.48fr) minmax(0,.68fr) minmax(0,.58fr)!important;gap:3px!important}}
+
+
+/* Nota pembelian per barang: nama file ditampilkan di dalam tombol */
+#content form#purchaseHead.purchase-head-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr) 40px!important;align-items:end!important}
+#content #purchaseLineRows .purchase-line{grid-template-columns:minmax(0,1.25fr) minmax(0,.48fr) minmax(0,.55fr) minmax(0,.78fr) minmax(0,.62fr) minmax(74px,.62fr)!important}
+#content #purchaseLineRows .line-note-label{display:grid!important;min-width:0!important;gap:5px!important;font-size:10px!important}
+#content #purchaseLineRows .line-note-btn{width:100%;min-width:0;min-height:38px;display:flex;align-items:center;justify-content:center;gap:4px;padding:7px 5px;border:1px solid #bdebd2;background:#effcf5;color:#078b58;font-size:10px}
+#content #purchaseLineRows .line-note-btn>span:first-child{font-size:16px;font-weight:800;flex:0 0 auto}
+#content #purchaseLineRows .line-note-name{display:block;min-width:0;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#content #purchaseLineRows .line-note-btn.uploaded{background:#e0f8eb;border-color:#0aa66a}
+@media(max-width:800px){
+ #content form#purchaseHead.purchase-head-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr) 34px!important;gap:6px!important}
+ #content #purchaseLineRows .purchase-line{grid-template-columns:minmax(0,1.15fr) minmax(0,.45fr) minmax(0,.5fr) minmax(0,.72fr) minmax(0,.6fr) minmax(66px,.62fr)!important;gap:5px!important}
+ #content #purchaseLineRows .line-note-label{font-size:9px!important}
+ #content #purchaseLineRows .line-note-btn{min-height:36px;padding:6px 3px;font-size:9px}
+}
