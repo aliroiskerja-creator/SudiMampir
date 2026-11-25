@@ -58,22 +58,16 @@
    ========================================================= */
 :root{
  --green:#078c55;--green2:#13b878;--dark:#075b3b;--mint:#e9fbf1;
- --bg:#f3fbf6;--text:#102f27;--muted:#718b83;--line:#dcefe5;
+ --bg:#e8f7ed;--text:#102f27;--muted:#718b83;--line:#dcefe5;
  --white:#fff;--shadow:0 12px 32px rgba(7,92,61,.09);
  --blue:#079fe3;--sky:#39c8ef;
 }
 html{scroll-behavior:smooth}
 body{
- background:linear-gradient(135deg,#f2fff5 0%,#fff 48%,#eaf8f2 100%);
+ background:#e8f7ed;
  color:var(--text);font-family:'DM Sans',Inter,system-ui,sans-serif;
 }
-body:before{
- content:"";position:fixed;z-index:-1;pointer-events:none;inset:0;
- background:
-  radial-gradient(ellipse 75% 19% at 55% -5%,rgba(0,166,238,.22),transparent 72%),
-  radial-gradient(ellipse 58% 15% at 72% 0%,rgba(0,100,220,.13),transparent 70%),
-  radial-gradient(ellipse 60% 16% at 8% 100%,rgba(116,232,91,.15),transparent 70%);
-}
+body:before{display:none!important;content:none!important}
 .app-shell{background:transparent}
 .sidebar{
  width:236px;padding:22px 14px 18px;background:rgba(255,255,255,.91);
@@ -89,7 +83,7 @@ body:before{
 .logout{background:linear-gradient(110deg,#fff1ef,#ffe8e6);border:1px solid #ffe0dc}
 .main{margin-left:236px;padding:0 28px 42px;min-width:0}
 .topbar{height:88px;border-bottom:1px solid rgba(204,231,216,.8);position:relative}
-.topbar:after{content:"";position:absolute;z-index:-1;left:20%;right:0;top:0;height:85px;background:linear-gradient(165deg,transparent 25%,rgba(18,169,230,.13) 45%,rgba(3,101,210,.1) 56%,transparent 72%);pointer-events:none}
+.topbar:after{display:none!important;content:none!important}
 .topbar .eyebrow{font-size:9px;letter-spacing:1.6px}.topbar h2{font-size:25px;font-weight:800;letter-spacing:-.8px}
 .user-chip{border-radius:16px;padding:8px 13px;box-shadow:0 4px 16px rgba(10,92,63,.04)}
 .content{padding:24px 0 32px;min-width:0}
