@@ -860,3 +860,13 @@ tbody tr:last-child td:first-child{border-radius:0 0 0 9px}tbody tr:last-child t
  .receipt-modal{padding:0!important;margin:0!important;max-width:none!important;width:auto!important;max-height:none!important;overflow:visible!important;box-shadow:none!important}
  .receipt-actions{display:none!important}
 }
+
+/* Keranjang: pengaturan jenis pesanan per baris dan input nominal */
+.cart-item-controls{display:flex;flex-direction:column;gap:4px;min-width:0}
+.cart-qty{width:54px!important;max-width:54px!important;padding:7px 5px!important;text-align:center}
+.cart-order-type{width:100%;min-width:76px;max-width:104px;padding:6px 4px!important;font-size:10px!important}
+#cashReceived{font-variant-numeric:tabular-nums}
+@media print{
+ body.print-one-receipt #receiptPaper .receipt-copy.copy-customer{display:none!important}
+ body.print-one-receipt #receiptPaper .receipt-copy.copy-store{break-after:auto!important;page-break-after:auto!important}
+}
