@@ -870,3 +870,24 @@ tbody tr:last-child td:first-child{border-radius:0 0 0 9px}tbody tr:last-child t
  body.print-one-receipt #receiptPaper .receipt-copy.copy-customer{display:none!important}
  body.print-one-receipt #receiptPaper .receipt-copy.copy-store{break-after:auto!important;page-break-after:auto!important}
 }
+
+
+/* Redesain Input Belanja: tanggal, cabang, nota, dan hapus menjadi satu kelompok */
+#content .purchase-items-panel{padding:19px}
+#content form#purchaseHead.purchase-head-grid{display:grid!important;grid-template-columns:minmax(120px,1fr) minmax(120px,1fr) minmax(150px,1.2fr) 42px!important;gap:10px!important;align-items:end!important;margin:0!important}
+#content form#purchaseHead.purchase-head-grid>label{display:grid!important;min-width:0!important;gap:5px!important;font-size:11px!important}
+#content form#purchaseHead.purchase-head-grid input,#content form#purchaseHead.purchase-head-grid select{width:100%!important;min-width:0!important;padding:10px 9px!important;font-size:11px!important}
+#content .purchase-upload-label{position:relative}
+#content .purchase-upload-btn{width:100%;min-height:39px;display:flex;align-items:center;justify-content:center;gap:6px;border:1px solid #bdebd2;background:#effcf5;color:#078b58;padding:8px 6px;font-size:11px}
+#content .purchase-upload-btn span{font-size:18px;font-weight:800}
+#content .purchase-upload-btn small{font-size:9px;color:#648477}
+#content .purchase-upload-btn.uploaded{background:#e0f8eb;border-color:#0aa66a}
+#content .purchase-file-name{display:block;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:9px;color:#6f897d}
+#content .purchase-group-remove{width:40px;height:40px;min-width:40px;display:grid;place-items:center;padding:8px;background:#fff1f1;border:1px solid #ffd3d3;color:#e34b4b;border-radius:11px}
+#content .purchase-group-remove svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+#content .purchase-items-divider{height:1px;background:var(--line);margin:14px 0 4px}
+#content #purchaseLineRows .purchase-line{display:grid!important;grid-template-columns:minmax(0,1.25fr) minmax(0,.48fr) minmax(0,.55fr) minmax(0,.72fr) minmax(0,.52fr)!important;gap:7px!important;align-items:end!important;padding:10px 0!important;border-bottom:1px solid var(--line)}
+#content #purchaseLineRows .purchase-line .line-subtotal{padding:8px 2px!important}
+#content #purchaseLineRows .purchase-line .line-subtotal b{white-space:nowrap!important;font-size:11px!important}
+@media(max-width:800px){#content form#purchaseHead.purchase-head-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1.05fr) 32px!important;gap:6px!important}#content form#purchaseHead.purchase-head-grid>label{font-size:9px!important;gap:4px!important}#content form#purchaseHead.purchase-head-grid input,#content form#purchaseHead.purchase-head-grid select{padding:8px 5px!important;font-size:9px!important}#content .purchase-upload-btn{min-height:34px;font-size:9px;padding:5px 2px;gap:3px}#content .purchase-upload-btn span{font-size:15px}#content .purchase-upload-btn small{font-size:7px}#content .purchase-file-name{font-size:7px}#content .purchase-group-remove{width:30px;height:30px;min-width:30px;padding:5px}#content .purchase-group-remove svg{width:15px;height:15px}#content #purchaseLineRows .purchase-line{grid-template-columns:minmax(0,1.25fr) minmax(0,.48fr) minmax(0,.55fr) minmax(0,.72fr) minmax(0,.62fr)!important;gap:5px!important;padding:8px 0!important}#content #purchaseLineRows .purchase-line>label{font-size:9px!important}#content #purchaseLineRows .purchase-line input,#content #purchaseLineRows .purchase-line select{padding:8px 4px!important;font-size:9px!important}#content #purchaseLineRows .line-subtotal small{font-size:8px!important}#content #purchaseLineRows .line-subtotal b{font-size:9px!important}}
+@media(max-width:380px){#content form#purchaseHead.purchase-head-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) 28px!important;gap:4px!important}#content .purchase-upload-btn{font-size:8px}#content #purchaseLineRows .purchase-line{grid-template-columns:minmax(0,1.15fr) minmax(0,.43fr) minmax(0,.48fr) minmax(0,.68fr) minmax(0,.58fr)!important;gap:3px!important}}
